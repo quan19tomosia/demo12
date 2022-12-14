@@ -1,0 +1,106 @@
+<p style="color: green">
+  <%= notice %>
+</p>
+
+<div class="row mb-5">
+  <div class="col-md">
+    <div class="d-flex justify-content-between" style="align-items: center">
+      <h6 class="mt-2 text-muted">Appointment infomations</h6>
+      <span class="badge rounded-pill bg-<%= badge_class(@appointment.state) %>">
+        <%= @appointment.state %>
+      </span>
+    </div>
+    <div class="card-subtitle text-muted mb-3"><%= @appointment.service.name %></div>
+    <figure>
+      <blockquote>
+        <p class="card-text"><strong>Patient</strong>: <%= @appointment.patient.user.name %></p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        <%= link_to "#", class: "card-link" do %>
+          <small>View appointments history this person</small>
+        <% end %>
+      </figcaption>
+    </figure>
+    <div class="row">
+      <div class="col-md">
+            <label class="col-form-label">Date</label>
+            <div>
+              <div class="input-group input-group-merge">
+                <input type="text" class="form-control" disabled />
+                <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <label class="col-form-label">Time</label>
+            <div>
+              <div class="input-group input-group-merge">
+                <input type="text" class="form-control" disabled />
+                <span class="input-group-text"><i class="bi bi-clock"></i></span>
+              </div>
+            </div>
+          </div>
+    </div>
+    <dl class="row mt-2">
+      <dt class="col-sm-3">Diagnose</dt>
+      <dd class="col-sm-9">
+        <p><%= @appointment.diagnose %></p>
+      </dd>
+    </dl>
+    <label class="col-sm-2 form-label">Comment</label>
+    <div>
+      <div class="input-group input-group-merge">
+        <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
+        <textarea class="form-control" disabled></textarea>
+      </div>
+    </div>
+    <dl class="row mt-2">
+      <dt class="col-sm-3">Rate</dt>
+      <dd class="col-sm-9">
+      </dd>
+    </dl>
+    <label class="col-sm-2 form-label">Note</label>
+    <div>
+      <div class="input-group input-group-merge">
+        <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
+        <textarea class="form-control" disabled></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="col-md">
+    <h6 class="mt-2 text-muted">Physician</h6>
+    <div class="card">
+      <img class="card-img-top"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Nd5QJdhzApS-CVTJD26Sgf1G1qxMo2WL7w&usqp=CAU"
+        alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= @appointment.physician.user.name %>
+        </h5>
+        <p class="card-text">
+          <small>
+            <%= @appointment.physician.degree %>
+          </small>
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= @appointment.physician.education %>
+        </li>
+        <li class="list-group-item">
+          <%= @appointment.physician.speciality %>
+        </li>
+      </ul>
+      <div class="card-body">
+        <%= link_to "View this physician" , physician_path(@appointment.physician) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <%= link_to "Edit this appointment" , edit_appointment_path(@appointment) %> |
+    <%= link_to "Back to appointments" , appointments_path %>
+
+      <%= button_to "Destroy this appointment" , @appointment, method: :delete, class: "btn btn-danger" %>
+</div>

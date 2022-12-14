@@ -1,0 +1,46 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+appointment1:
+  physician: physician1
+  patient: patient1
+  service: one
+  schedule: 22-10-2022
+  diagnose: abcxyz
+  state: 2
+  rate: 5
+  comment: Good doc!
+  note:
+appointment2:
+  physician: physician2
+  patient: patient1
+  service: two
+  schedule: 23-10-2022
+  diagnose: xyzabc
+  state: 2
+  rate: 4
+  comment: Great appointment
+  note:
+appointment3:
+  physician: physician2
+  patient: patient2
+  service: one
+  schedule: 25-10-2022
+  diagnose:
+  state: 3
+  rate:
+  comment:
+  note:
+appointment4:
+  physician: physician1
+  patient: patient2
+  service: three
+  schedule: 01-11-2022
+  diagnose:
+  state: 1
+  rate:
+  comment:
+  note:

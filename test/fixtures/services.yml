@@ -1,0 +1,81 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  name: Điều trị theo yêu cầu
+  description: Điều trị theo yêu cầu là mô hình thực hiện theo chủ trương xã hội hóa công tác y tế nhằm đáp ứng nhu cầu phục vụ các dịch vụ y hướng đến sự hài lòng của người bệnh
+  price: 200000
+  status: 1
+two:
+  name: Răng hàm mặt
+  description: Khám răng hàm mặt là một chuyên khoa phụ trách điều trị bệnh lý chuyên sâu và thẩm mỹ trên toàn bộ cấu trúc răng (răng, xương răng, tuỷ răng,...), hàm (vòm miệng, quai hàm, khớp hàm,...) và mặt (xương trán, xương gò má, xương thái dương,...)
+  price: 200000
+  status: 1
+three:
+  name: Tai mũi họng
+  description: Khám tai mũi họng là chẩn đoán và quản lý tất cả các bệnh về tai, mũi xoang, vòm mũi họng, khoang miệng, hầu họng, thanh quản (hộp thoại), cũng như các cấu trúc của vùng cổ và mặt.
+  price: 200000
+  status: 1
+four:
+  name: Tiểu phẫu
+  description: Thực hiện những can thiệp bằng phẩu thuật mà không đòi hỏi bệnh nhân phải ở lại qua đêm, cũng như cung cấp dịch vụ chăm sóc, theo dõi trước và sau phẫu thuật ở bệnh viện
+  price: 20000000
+  status: 0
+five:
+  name: Bệnh lí về khớp và gãy xương
+  description: Gãy xương là sự phá hủy đột ngột các cấu trúc bên trong của xương gây ra các tổn thương và làm gián đoạn về truyền lực qua xương
+  price: 800000
+  status: 1
+six:
+  name: Phỏng
+  description: Phỏng (bỏng) là một trong những tai nạn mà hầu như bất cứ ai cũng từng gặp phải một lần trong cuộc sống. Các mức độ bỏng khác nhau sẽ có cách điều trị tương ứng nhằm hạn chế những biến chứng do bỏng để lại và phục hồi da nhanh chóng
+  price: 500000
+  status: 1
+seven:
+  name: Tư vấn phẫu thuật thẩm mỹ
+  description: Những khuyết điểm bẩm sinh hoặc do tai nạn về ngoại hình như mũi cong lệch, sẹo lồi lõm hoặc ngực tiêu lép chỉ có thể khắc phục hoàn hảo nhờ công nghệ thẩm mỹ
+  price: 800000
+  status: 0
+eight:
+  name: Mắt
+  description: Khám mắt là một loạt những bài kiểm tra do các chuyên gia khúc xạ nhãn khoa, đo thị lực để đánh giá thị lực, khả năng nhìn vào tiêu điểm và phân biệt vật thể, cũng như các bài kiểm tra khác có liên quan đến mắt.
+  price: 2000000
+  status: 0
+nine:
+  name: Nội chuyên khoa
+  description: Nội khoa là phân ngành trong y khoa liên quan đến việc ngăn ngừa, chẩn đoán và điều trị các bệnh của cơ quan bên trong cơ thể, đặc biệt là ở người lớn. Bác sĩ nội khoa cần có kỹ năng trong việc quản lý các bệnh nhân có quá trình bệnh không rõ ràng hoặc nhiều bệnh cùng lúc.
+  price: 200000
+  status: 1
+ten:
+  name: Chấn thương
+  description: Chấn thương, còn được gọi là tổn thương thể chất, là thiệt hại cho cơ thể do ngoại lực gây ra
+  price: 12000000
+  status: 0
+eleven:
+  name: Dinh dưỡng
+  description: Khám dinh dưỡng là một quy trình kiểm tra dựa trên các kết quả cận lâm sàng hoặc lâm sàng để nhanh chóng phát hiện tình trạng đang gặp phải như Suy dinh dưỡng hoặc dư thừa dinh dưỡng.
+  price: 680000
+  status: 1
+twelve:
+  name: Tâm lý
+  description: Khám tâm lý là bước đầu tiên để chẩn đoán chính xác các bệnh về tâm thần như rối loạn lo âu, trầm cảm…
+  price: 500000
+  status: 0
+thirteen:
+  name: Bệnh lý tim mạch
+  description: Bệnh tim mạch (CVD) là do các rối loạn của tim và mạch máu. Bệnh tim mạch bao gồm bệnh mạch vành (nhồi máu cơ tim), tai biến mạch máu não (đột quỵ), tăng huyết áp tăng (cao huyết áp), bệnh động mạch ngoại biên, bệnh thấp tim, bệnh tim bẩm sinh và suy tim.
+  price: 810000
+  status: 1
+fourteen:
+  name: Phục hồi chức năng
+  description: Phục hồi chức năng là biện pháp hồi phục lại các chức năng bị giảm hoặc bị mất do chấn thương, tai nạn, đột quỵ, bại não... gây ra.
+  price: 450000
+  status: 1
+fifteen:
+  name: Da liễu
+  description: Khoa Da liễu là khoa chuyên điều trị các bệnh về da và những phần phụ của da (tóc, móng, tuyến mồ hôi…)
+  price: 150000
+  status: 1

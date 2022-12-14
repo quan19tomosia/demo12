@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<div style="display: flex; justify-content: space-between; align-items: center">
+  <h4 class="fw-bold py-3 mb-4">Appointments</h4>
+  <%= link_to "New appointment", new_appointment_path, class: "btn btn-sm btn-outline-primary" %>
+</div>
+
+<%# <div id="appointments"> %>
+  <%# <% @appointments.each do |appointment| %>
+    <%# <%= render appointment %>
+    <%# <p> %>
+      <%# <%= link_to "Show this appointment", appointment %>
+    <%# </p> %>
+  <%# <% end %>
+<%# </div> %>
+
+
+<div class="card">
+  <div class="table-responsive text-nowrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Physician</th>
+          <th>Service</th>
+          <th>Schedule Date</th>
+          <th>Schedule Time</th>
+          <th>Patient phone</th>
+          <th>State</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+        <tbody class="table-border-bottom-0">
+            <% @appointments.each do |appointment| %>
+              <%= render appointment %>
+            <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

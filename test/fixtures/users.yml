@@ -1,0 +1,81 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+admin:
+  email: admin@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Quân
+  role: 0
+maianh:
+  email: maianh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Mai Anh
+  role: 1
+quanghuy:
+  email: quanghuy@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Quang Huy
+  role: 2
+xuanthanh:
+  email: xuanthanh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Xuân Thành
+  role: 1
+minhquang:
+  email: minhquang@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Minh Quang
+  role: 2
+trongquy:
+  email: trongquy@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Trọng Quý
+  role: 2
+maianh:
+  email: maianh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Mai Anh
+  role: 2
+duyduong:
+  email: duyduong@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Duy Dương
+  role: 2
+lananh:
+  email: lananh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Lan Anh
+  role: 2
+nhatnam:
+  email: nhatnam@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Nhật Nam
+  role: 2
+huyenanh:
+  email: huyenanh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Huyền Anh
+  role: 2
+phuongnam:
+  email: phuongnam@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Phương Nam
+  role: 2
+thuthuy:
+  email: thuthuy@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Thu Thuỷ
+  role: 2
+anhtuan:
+  email: anhtuan@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Anh Tuấn
+  role: 2
+maihuong:
+  email: maihuong@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Mai Hương
+  role: 2

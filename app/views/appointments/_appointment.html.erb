@@ -1,0 +1,29 @@
+<div id="<%= dom_id appointment %>">
+  <tr class="table-secondary">
+    <td><strong><%= appointment.patient.user.name %></strong></td>
+    <td><%= appointment.physician.user.name %></td>
+    <td><%= appointment.service.name %></td>
+    <td><%= appointment.schedule.strftime("%d-%m-%Y") %></td>
+    <td><%= appointment.schedule.strftime("%H:%m") %></td>
+    <td><%= appointment.patient.phone %></td>
+    <td><span class="badge rounded-pill bg-<%= badge_class(appointment.state) %>"><%= appointment.state %></span></td>
+    <td>
+      <div class="dropdown">
+        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+        <div class="dropdown-menu">
+          <%= link_to appointment_path(appointment), class: "dropdown-item" do %>
+            <i class="bi bi-info-circle me-1"></i> Details
+          <% end %>
+          <%= link_to edit_appointment_path(appointment), class: "dropdown-item" do %>
+            <i class="bi bi-pencil-square me-1"></i> Edit
+          <% end %>
+          <%= button_to appointment, method: :delete, class: "dropdown-item" do %>
+            <i class="bi bi-trash me-1"></i> Delete
+          <% end %>
+        </div>
+      </div>
+    </td>
+  </tr>
+</div>
