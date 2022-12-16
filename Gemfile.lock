@@ -147,6 +147,8 @@ GEM
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (5.10.1)
+      activesupport
     pg (1.4.5)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -182,6 +184,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ransack (3.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     redis (4.8.0)
     regexp_parser (2.6.1)
     reline (0.3.1)
@@ -244,9 +250,11 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   letter_opener_web
+  pagy (~> 5.10)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  ransack
   redis (~> 4.0)
   selenium-webdriver
   sprockets-rails

@@ -1,0 +1,94 @@
+<div class="row gy-3" style="height: 100%">
+  <div class="col-lg-9 col-md-12" style="position: relative">
+    <% if @single_room %>
+      <div class="d-flex justify-content-between align-items-center">
+        <h4 class="fw-bold py-3 mb-4"># <%= @single_room.name %> </h4>
+        <i class="bi bi-headset"></i>
+      </div>
+      <% @single_room.messages.each do |message| %>
+        <div
+          class="bs-toast toast fade show bg-secondary"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <%# <i class="bx bx-bell me-2"></i> %>
+            <div class="me-auto fw-semibold"><%= message.user.name %></div>
+            <%# <small>11 mins ago</small> %>
+          </div>
+          <div class="toast-body mb-3">
+            <%= message.body %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= form_with url: "", method: :post do |f| %>
+        <div class="input-group input-group-merge speech-to-text" style="position: absolute; bottom: 0">
+          <button type="submit" class="input-group-text">
+            <i class="bi bi-send"></i>
+          </button>
+          <%= f.text_field :message, class: "form-control", placeholder: "Message ##{@single_room.name}" %>
+          <span class="input-group-text" id="text-to-speech-addon">
+            <i class="bi bi-mic cursor-pointer text-to-speech-toggle"></i>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="card accordion-item">
+      <div class="card accordion-item active">
+        <h2 class="accordion-header" id="headingOne">
+          <button
+            type="button"
+            class="accordion-button"
+            data-bs-toggle="collapse"
+            data-bs-target="#accordionOne"
+            aria-expanded="true"
+            aria-controls="accordionOne"
+          >
+            <strong>Channels</strong>
+          </button>
+        </h2>
+        <div
+          id="accordionOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <% @rooms.each do |room| %>
+              </p><%= link_to room.name, room_path(room) %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="card accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button
+            type="button"
+            class="accordion-button collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#accordionTwo"
+            aria-expanded="false"
+            aria-controls="accordionTwo"
+          >
+            <strong>Direct Messages</strong>
+          </button>
+        </h2>
+        <div
+          id="accordionTwo"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <% @users.each do |user| %>
+              <p><%= user.name %><p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

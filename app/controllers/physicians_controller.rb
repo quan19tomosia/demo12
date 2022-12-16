@@ -3,7 +3,7 @@ class PhysiciansController < ApplicationController
 
   # GET /physicians or /physicians.json
   def index
-    @physicians = Physician.all
+    @physicians = Physician.search(params[:keyword])
   end
 
   # GET /physicians/1 or /physicians/1.json
@@ -66,6 +66,6 @@ class PhysiciansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def physician_params
-      params.require().permit(:degree, :education, :speciality, :experience, :about)
+      params.require(:physician).permit(:degree, :education, :speciality, :experience, :about, :search)
     end
 end

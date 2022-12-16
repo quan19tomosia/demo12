@@ -1,15 +1,34 @@
-<%= form_with(model: service) do |form| %>
+<%= form_with(model: service, html: {class: "col-md-8"}) do |form| %>
   <% if service.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+      <h2>
+        <%= pluralize(service.errors.count, "error" ) %> prohibited this service from being saved:
+      </h2>
 
       <ul>
         <% service.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li>
+            <%= error.full_message %>
+          </li>
         <% end %>
       </ul>
     </div>
   <% end %>
+
+  <div class="input-group mb-3">
+    <%= form.text_field :name, class: "form-control" , placeholder: "Service name" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">VNĐ</span>
+    <%= form.text_field :price, class: "form-control" , placeholder: 100000 %>
+    <span class="input-group-text">.00</span>
+  </div>
+
+  <div class="input-group input-group-merge mb-3">
+    <span class="input-group-text">With textarea</span>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
 
   <div>
     <%= form.submit nil, class: "btn btn-primary" %>

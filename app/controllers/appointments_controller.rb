@@ -3,7 +3,8 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.all
+    @search = Appointment.ransack(params[:q])
+    @pagy, @appointments = pagy(@search.result.includes(:physician), items: 10)
   end
 
   # GET /appointments/1 or /appointments/1.json
@@ -12,7 +13,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
-    @services = Service.all
+    @services = Service.where(status: Service.statuses[:active])
     @patients = Patient.all
     @physicians = Physician.all
     @appointment = Appointment.new

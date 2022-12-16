@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :physician
   has_one :patient, dependent: :destroy
+  has_many :messages
 
   enum role: {admin: 0, physician: 1, patient: 2}, _prefix: :role
+
+  scope :all_except, ->(user) { where.not(id: user) }
 end

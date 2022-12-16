@@ -1,0 +1,42 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: admin
+  room: general
+  body: Message 1
+two:
+  user: maianh
+  room: general
+  body: maianh's message in general
+three:
+  user: maianh
+  room: general
+  body: Message 3
+four:
+  user: maianh
+  room: general
+  body: maianh's message in general
+five:
+  user: maianh
+  room: general
+  body: Message 5
+six:
+  user: admin
+  room: general
+  body: Message 6
+seven:
+  user: maianh
+  room: general
+  body: Message 7
+eight:
+  user: maianh
+  room: general
+  body: maianh's message in general
+nine:
+  user: admin
+  room: general
+  body: Message 9
+ten:
+  user: maianh
+  room: general
+  body: maianh's message in general

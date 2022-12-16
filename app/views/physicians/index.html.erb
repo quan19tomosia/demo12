@@ -5,16 +5,15 @@
   <%= link_to "New physician", new_physician_path, class: "btn btn-sm btn-outline-primary" %>
 </div>
 
-<%# <div id="physicians"> %>
-  <%# <% @physicians.each do |physician| %>
-    <%# <%= render physician %>
-    <%# <p> %>
-      <%# <%= link_to "Show this physician", physician %>
-    <%# </p> %>
-  <%# <% end %>
-<%# </div> %>
-
 <div class="card">
+  <%= form_with url: physicians_path, method: :get do |form| %>
+    <div class="input-group">
+      <span class="input-group-text"><i class="tf-icons bi bi-search"></i></span>
+      <%= form.text_field :keyword, class: "form-control", placeholder: "Search..." %>
+      <%= form.submit "Search", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <br>
   <div class="table-responsive text-nowrap">
     <table class="table">
       <thead>
