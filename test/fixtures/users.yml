@@ -7,75 +7,174 @@
 admin:
   email: admin@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
-  name: Quân
+  name: Hùng Quân
+  phone: 0902251996
   role: 0
 maianh:
   email: maianh@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Mai Anh
+  phone: 
   role: 1
 quanghuy:
   email: quanghuy@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Quang Huy
+  phone: 
   role: 2
 xuanthanh:
   email: xuanthanh@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Xuân Thành
+  phone: 
   role: 1
 minhquang:
   email: minhquang@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Minh Quang
+  phone: 
   role: 2
 trongquy:
   email: trongquy@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Trọng Quý
-  role: 2
-maianh:
-  email: maianh@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
-  name: Mai Anh
+  phone: 
   role: 2
 duyduong:
   email: duyduong@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Duy Dương
+  phone: 
   role: 2
 lananh:
   email: lananh@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Lan Anh
+  phone: 
   role: 2
 nhatnam:
   email: nhatnam@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Nhật Nam
+  phone: 
   role: 2
 huyenanh:
   email: huyenanh@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Huyền Anh
+  phone: 
   role: 2
 phuongnam:
   email: phuongnam@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Phương Nam
-  role: 2
+  phone: 0983704297
+  role: 1
 thuthuy:
   email: thuthuy@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Thu Thuỷ
-  role: 2
-anhtuan:
-  email: anhtuan@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
-  name: Anh Tuấn
+  phone: 
   role: 2
 maihuong:
   email: maihuong@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: Mai Hương
+  phone: 
+  role: 2
+duyanh:
+  email: duyanh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Nguyễn Duy Anh
+  phone: 0383383743
+  role: 1
+thucanh:
+  email: thucanh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Thục Anh
+  phone: 
+  role: 1
+quocdat:
+  email: quocdat@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Quốc Đạt
+  phone: 0902134164
+  role: 1
+tuananh:
+  email: tuananh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Tuấn Anh
+  phone: 0374235585
+  role: 1
+maitrang:
+  email: maitrang@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Mai Trang
+  phone: 
+  role: 1
+anhtung:
+  email: anhtung@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Anh Tùng
+  phone: 0376845475
+  role: 1
+truongan:
+  email: truongan@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Trường An
+  phone: 
+  role: 2
+ngochai:
+  email: ngochai@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Ngọc Hải
+  phone: 
+  role: 2
+phuonganh:
+  email: phuonganh@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Phương Anh
+  phone: 
+  role: 1
+vancuong:
+  email: vancuong@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Văn Cường
+  phone: 
+  role: 2
+thungan:
+  email: thungan@example.com 
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Thu Ngân
+  phone: 
+  role: 2
+thuha:
+  email: thuha@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Thu Hà
+  phone: 
+  role: 2
+anhhong:
+  email: anhhong@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Ánh Hồng
+  phone: 
+  role: 2
+trantien:
+  email: trantien@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Trần Tiến
+  phone: 
+  role: 2
+thanhcong:
+  email: thanhcong@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Thành Công
+  phone: 
+  role: 2
+quanghieu:
+  email: quanghieu@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: Quang Hiếu
+  phone: 
   role: 2

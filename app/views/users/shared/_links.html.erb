@@ -10,8 +10,10 @@
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <p class="text-center">
     <span>New on our platform?</span>
-    <%= link_to "Create an account", new_registration_path(resource_name) %>
-  </p><br />
+    <%= link_to new_registration_path(resource_name) do %>
+      <span>Create an account</span>
+    <% end %>
+  </p>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

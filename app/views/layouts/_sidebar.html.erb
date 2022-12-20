@@ -63,7 +63,22 @@
           <div data-i18n="Analytics">Dashboard</div>
         <% end %>
       </li>
-
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Users</span>
+      </li>
+      
+      <li class="menu-item <%= current_path?(physicians_path) %>">
+        <%= link_to physicians_path, class: "menu-link" do %>
+          <i class="menu-icon tf-icons bi bi-shield-plus"></i>
+          <div data-i18n="Tables">Physicians</div>
+        <% end %>
+      </li>
+      <li class="menu-item <%= current_path?(patients_path) %>">
+        <%= link_to patients_path, class: "menu-link" do %>
+          <i class="menu-icon tf-icons bi bi-virus"></i>
+          <div data-i18n="Tables">Patients</div>
+        <% end %>
+      </li>
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Services</span>
       </li>
@@ -71,24 +86,6 @@
         <%= link_to services_path, class: "menu-link" do %>
           <i class="menu-icon tf-icons bi bi-prescription2"></i>
           <div data-i18n="Tables">Services</div>
-        <% end %>
-      </li>
-      <li class="menu-header small text-uppercase">
-        <span class="menu-header-text">Physicians</span>
-      </li>
-      <li class="menu-item <%= current_path?(physicians_path) %>">
-        <%= link_to physicians_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bi bi-shield-plus"></i>
-          <div data-i18n="Tables">Physicians</div>
-        <% end %>
-      </li>
-      <li class="menu-header small text-uppercase">
-        <span class="menu-header-text">Patients</span>
-      </li>
-      <li class="menu-item <%= current_path?(patients_path) %>">
-        <%= link_to patients_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bi bi-virus"></i>
-          <div data-i18n="Tables">Patients</div>
         <% end %>
       </li>
       <li class="menu-header small text-uppercase">
@@ -103,7 +100,7 @@
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Chat</span>
       </li>
-      <li class="menu-item">
+      <li class="menu-item <%= current_path?(rooms_path) %>">
         <%= link_to rooms_path, class: "menu-link" do %>
           <i class="menu-icon tf-icons bi bi-chat-dots"></i>
           <div data-i18n="Tables">Messenger</div>

@@ -5,7 +5,6 @@ class ServicesController < ApplicationController
   def index
     @search = Service.ransack(params[:q])
     @pagy, @services = pagy(@search.result(distinct: true), items: 10)
-    # @pagy, @services = pagy(Service.search(params[:status], params[:keyword]), items: 10)
   end
 
   # GET /services/1 or /services/1.json
@@ -67,7 +66,6 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.fetch(:service, {})
       params.require(:service).permit(:name, :price, :description, :status)
     end
 end

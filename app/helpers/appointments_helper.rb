@@ -1,4 +1,8 @@
 module AppointmentsHelper
+  def states_collection
+    return Appointment.states.map { |k,v| [k.humanize.capitalize, v] }.push(["All states", ""]).reverse
+  end
+
   def badge_class(state)
     case state
     when 'pending'

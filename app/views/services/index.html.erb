@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<div style="display: flex; justify-content: space-between; align-items: center">
+<div class="d-flex justify-content-between align-items-center">
   <h4 class="fw-bold py-3 mb-4">Services</h4>
-  <%= link_to "New service", new_service_path, class: "btn btn-sm btn-outline-primary" %>
+  <%= link_to "New service", new_service_path, data: { turbo_frame: "second_frame" }, class: "btn btn-sm btn-outline-primary" %>
 </div>
 
 <%= search_form_for @search, url: services_path do |f| %>
@@ -15,12 +15,13 @@
       </div>
     </div>
     <div class="col-lg-2 col-md-3">
-      <%= f.select :status_eq, options_for_select(Service.statuses.map { |k,v| [k.humanize.capitalize, v] }),{ prompt: "All" }, onchange: "this.form.submit()", class: "form-select" %>
+      <%= f.select :status_eq, options_for_select(status_collection, @search.status_eq), {}, { onchange: "this.form.submit()", class: "form-select" } %>
     </div>
   </div>
 <% end %>
 
 <%== render partial: 'pagy/pagination', locals: { pagy: @pagy } %>
+
 <div class="card">
   <div class="table-responsive text-nowrap">
     <table class="table">
@@ -34,11 +35,9 @@
         </tr>
       </thead>
         <tbody class="table-border-bottom-0">
-          <% @services.each do |service| %>
-            <%= render service %>
-          <% end %>
+            <%= render @services %>
         </tbody>
-      </table>
+    </table>
   </div>
 </div>
 

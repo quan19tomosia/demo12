@@ -1,9 +1,10 @@
 <div id="<%= dom_id physician %>">
   <tr class="table-secondary">
-    <td></td>
+    <td class="mw-px-50"><%= image_tag physician.image, class: "w-px-30 rounded-circle", style: "height: 30px" if physician.image.attached? %></td>
     <td><strong><%= physician.user.name %></strong></td>
+    <td><%= number_to_phone_vi(physician.user.phone) %></td>
     <td><%= physician.speciality %></td>
-    <td><%= physician.about %></td>
+    <td><%= physician.degree %></td>
     <td></td>
     <td>
       <div class="dropdown">

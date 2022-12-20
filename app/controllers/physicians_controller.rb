@@ -3,7 +3,8 @@ class PhysiciansController < ApplicationController
 
   # GET /physicians or /physicians.json
   def index
-    @physicians = Physician.search(params[:keyword])
+    @search = Physician.ransack(params[:q])
+    @pagy, @physicians = pagy(@search.result(distinct: true), items: 10)
   end
 
   # GET /physicians/1 or /physicians/1.json
@@ -13,16 +14,18 @@ class PhysiciansController < ApplicationController
   # GET /physicians/new
   def new
     @physician = Physician.new
+    @users = User.all
   end
 
   # GET /physicians/1/edit
   def edit
+    @users = User.all
   end
 
   # POST /physicians or /physicians.json
   def create
     @physician = Physician.new(physician_params)
-    # @physician.picture.attach(params[:physician][:picture])
+    @physician.image.attach(params[:physician][:image])
 
     respond_to do |format|
       if @physician.save
@@ -66,6 +69,6 @@ class PhysiciansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def physician_params
-      params.require(:physician).permit(:degree, :education, :speciality, :experience, :about, :search)
+      params.require(:physician).permit(:user_id, :image, :degree, :education, :speciality, :experience, :about)
     end
 end

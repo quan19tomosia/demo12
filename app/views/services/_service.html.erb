@@ -1,26 +1,24 @@
-<div id="<%= dom_id service %>">
-  <tr class="table-secondary">
-    <td><strong><%= service.name %></strong></td>
-    <td><%= truncate(service.description, length: 100) %></td>
-    <td><%= number_to_currency_vi(service.price) %></td>
-    <td><span class="badge rounded-pill bg-<%= label_class(service.status) %>"><%= service.status.capitalize %></span></td>
-    <td>
-      <div class="dropdown">
-        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-          <i class="bi bi-three-dots-vertical"></i>
-        </button>
-        <div class="dropdown-menu">
-          <%= link_to service_path(service), class: "dropdown-item" do %>
-            <i class="bi bi-info-circle-fill me-1"></i> Show
-          <% end %>
-          <%= link_to edit_service_path(service), class: "dropdown-item" do %>
-            <i class="bi bi-pencil-square me-1"></i> Edit
-          <% end %>
-          <%= button_to service, method: :delete, class: "dropdown-item" do %>
-            <i class="bi bi-trash me-1"></i> Delete
-          <% end %>
-        </div>
+<tr class="table-secondary">
+  <td><strong><%= service.name %></strong></td>
+  <td><%= truncate(service.description, length: 100) %></td>
+  <td><%= number_to_currency_vi(service.price) %></td>
+  <td><span class="badge rounded-pill bg-<%= label_class(service.status) %>"><%= service.status.capitalize %></span></td>
+  <td>
+    <div class="dropdown">
+      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+        <i class="bi bi-three-dots-vertical"></i>
+      </button>
+      <div class="dropdown-menu">
+        <%= link_to service_path(service), class: "dropdown-item" do %>
+          <i class="bi bi-info-circle-fill me-1"></i> Show
+        <% end %>
+        <%= link_to edit_service_path(service), class: "dropdown-item" do %>
+          <i class="bi bi-pencil-square me-1"></i> Edit
+        <% end %>
+        <%= button_to service, method: :delete, class: "dropdown-item" do %>
+          <i class="bi bi-trash me-1"></i> Delete
+        <% end %>
       </div>
-    </td>
-  </tr>
-</div>
+    </div>
+  </td>
+</tr>

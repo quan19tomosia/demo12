@@ -5,72 +5,37 @@
 # below each fixture, per the syntax in the comments below
 #
 physician1:
-  user: trongquy
+  user: maianh
   degree: Thạc sĩ Y học Lâm sàng
   education: Đại học Y Hà Nội
   speciality: Y học thể thao
   experience:
   about:
 physician2:
-  user: maianh
+  user: xuanthanh
   degree: Bác sĩ chuyên khoa I
   education: Đại học Y Dược Thành phố Hồ Chí Minh
   speciality: Nhãn khoa
   experience:
   about:
 physician3:
-  user: duyduong
-  degree: Bác sĩ chuyên khoa II
-  education: Học viện Quân y
-  speciality: Phẫu thuật chỉnh hình
-  experience:
-  about:
-physician4:
-  user: lananh
+  user: phuongnam
   degree: Tiến sĩ Y khoa
   education: Đại học Dược Hà Nội
   speciality: Tim mạch
   experience:
   about:
-physician5:
-  user: nhatnam
-  degree: Tiến sĩ
-  education: Đại Học Y Dược - ĐHQGHN
-  speciality: Dị ứng và miễn dịch học
-  experience:
-  about:
-physician6:
-  user: huyenanh
-  degree: Thạc sĩ
-  education: Học viện Quân y
-  speciality: Y học thể thao
-  experience:
-  about:
-physician7:
-  user: phuongnam
+physician4:
+  user: duyanh
   degree: Bác sĩ chuyên khoa II
   education: Đại học Y Hà Nội
   speciality: Phẫu thuật chỉnh hình
   experience:
   about:
-physician8:
-  user: thuthuy
-  degree: Bác sĩ chuyên khoa định hướng
-  education: Đại Học Y Dược - ĐHQGHN
-  speciality: Tai mũi họng
-  experience:
-  about:
-physician9:
-  user: anhtuan
+physician5:
+  user: thucanh
   degree: Thạc sĩ
   education: Đại học Y Hà Nội
   speciality: Mắt
-  experience:
-  about:
-physician10:
-  user: maihuong
-  degree: Bác sĩ chuyên khoa I
-  education: Học viện Quân y
-  speciality: Tim mạch
   experience:
   about:

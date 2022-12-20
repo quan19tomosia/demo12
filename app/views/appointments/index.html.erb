@@ -1,19 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<div style="display: flex; justify-content: space-between; align-items: center">
+<div class="d-flex justify-content-between align-items-center">
   <h4 class="fw-bold py-3 mb-4">Appointments</h4>
   <%= link_to "New appointment", new_appointment_path, class: "btn btn-sm btn-outline-primary" %>
 </div>
 
 <%= search_form_for @search, url: appointments_path, method: :get do |f| %>
-  <div class="input-group">
-    <span class="input-group-text"><i class="tf-icons bi bi-search"></i></span>
-    <%= f.text_field :physician_speciality_cont, class: "form-control", placeholder: "Search..." %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
+  <div class="row gy-3 mb-3 align-items-center">
+    <div class="col-lg-4 col-md-6">
+      <div class="input-group">
+        <span class="input-group-text"><i class="tf-icons bi bi-search"></i></span>
+        <%= f.text_field :physician_speciality_cont, class: "form-control", placeholder: "Search..." %>
+        <%= f.submit "Search", class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3">
+      <%= f.select :state_eq, options_for_select(states_collection, @search.state_eq), {}, { onchange: "this.form.submit()", class: "form-select" } %>
+    </div>
   </div>
-  <%= f.select :state_eq, options_for_select(Appointment.states.map { |k,v| [k.humanize.capitalize, v] }), { class: "dropdown-menu", prompt: "All states" }, {onchange: "this.form.submit()"} %>
 <% end %>
-<br>
 
 <%== render partial: 'pagy/pagination', locals: { pagy: @pagy } %>
 
@@ -32,11 +37,9 @@
           <th>Actions</th>
         </tr>
       </thead>
-        <tbody class="table-border-bottom-0">
-          <% @appointments.each do |appointment| %>
-            <%= render appointment %>
-          <% end %>
-        </tbody>
-      </table>
+      <tbody class="table-border-bottom-0">
+        <%= render @appointments %>
+      </tbody>
+    </table>
   </div>
 </div>
