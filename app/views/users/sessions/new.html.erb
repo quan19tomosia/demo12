@@ -60,6 +60,7 @@
           <h4 class="mb-2">Welcome to eHealth! 👋</h4>
           <p class="mb-4">Please sign-in to your account and start the adventure</p>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mb-3" }) do |f| %>
+            
             <div class="mb-3">
               <%= f.label :email, class: "form-label" %>
               <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", autofocus: true, autocomplete: "email" %>

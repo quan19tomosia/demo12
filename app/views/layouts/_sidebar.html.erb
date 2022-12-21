@@ -66,7 +66,12 @@
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Users</span>
       </li>
-      
+      <li class="menu-item <%= current_path?(users_path) %>">
+        <%= link_to users_path, class: "menu-link" do %>
+          <i class="menu-icon tf-icons bi bi-people"></i>
+          <div data-i18n="Tables">Users account</div>
+        <% end %>
+      </li>
       <li class="menu-item <%= current_path?(physicians_path) %>">
         <%= link_to physicians_path, class: "menu-link" do %>
           <i class="menu-icon tf-icons bi bi-shield-plus"></i>

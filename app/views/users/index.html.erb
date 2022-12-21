@@ -1,21 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="d-flex justify-content-between align-items-center">
-  <h4 class="fw-bold py-3 mb-4">Services</h4>
-  <%= link_to "New service", new_service_path, class: "btn btn-sm btn-outline-primary" %>
+  <h4 class="fw-bold py-3 mb-4">All users</h4>
+  <%= link_to "New user", "#", class: "btn btn-sm btn-outline-primary" %>
 </div>
 
-<%= search_form_for @search, url: services_path do |f| %>
+<%= search_form_for @search, url: users_path do |f| %>
   <div class="row gy-3 mb-3 align-items-center">
     <div class="col-lg-4 col-md-6">
       <div class="input-group">
         <span class="input-group-text"><i class="tf-icons bi bi-search"></i></span>
-        <%= f.text_field :name_or_description_cont, class: "form-control", placeholder: "Search..." %>
+        <%= f.text_field :name_or_email_or_phone_cont, class: "form-control", placeholder: "Search..." %>
         <%= f.submit "Search", class: "btn btn-primary" %>
       </div>
     </div>
     <div class="col-lg-2 col-md-3">
-      <%= f.select :status_eq, options_for_select(status_collection, @search.status_eq), {}, { class: "form-select", onchange: "this.form.submit()" } %>
+      <%= f.select :role_eq, options_for_select(role_collection, @search.role_eq), {}, { class: "form-select", onchange: "this.form.submit()" } %>
     </div>
   </div>
 <% end %>
@@ -27,15 +27,17 @@
     <table class="table">
       <thead>
         <tr>
+          <th></th>
           <th>Name</th>
-          <th>Description</th>
-          <th>Price</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Role</th>
           <th>Status</th>
           <th>Actions</th>
         </tr>
       </thead>
         <tbody class="table-border-bottom-0">
-            <%= render @services %>
+          <%= render @users %>
         </tbody>
     </table>
   </div>

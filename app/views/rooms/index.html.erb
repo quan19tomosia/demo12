@@ -6,35 +6,9 @@
           <h4 class="fw-bold py-3 mb-4"># <%= @single_room.name %> </h4>
           <i class="bi bi-headset"></i>
         </div>
-        <% @single_room.messages.each do |message| %>
-          <div
-            class="bs-toast toast fade show bg-secondary"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-          >
-            <div class="toast-header">
-              <%# <i class="bx bx-bell me-2"></i> %>
-              <div class="me-auto fw-semibold"><%= message.user.name %></div>
-              <%# <small>11 mins ago</small> %>
-            </div>
-            <div class="toast-body mb-3">
-              <%= message.body %>
-            </div>
-          </div>
-        <% end %>
+        <%= render @single_room.messages %>
       </div>
-      <%= form_with url: "", method: :post do |f| %>
-        <div class="input-group input-group-merge speech-to-text" style="position: absolute; bottom: 0">
-          <button type="submit" class="input-group-text">
-            <i class="bi bi-send"></i>
-          </button>
-          <%= f.text_field :message, class: "form-control", placeholder: "Message ##{@single_room.name}" %>
-          <span class="input-group-text" id="text-to-speech-addon">
-            <i class="bi bi-mic cursor-pointer text-to-speech-toggle"></i>
-          </span>
-        </div>
-      <% end %>
+      <%= render 'messages/form' %>
     <% end %>
   </div>
   <div class="col-lg-3 col-md-6">
@@ -58,13 +32,15 @@
           data-bs-parent="#accordionExample"
         >
           <div class="accordion-body">
-            <% @rooms.each do |room| %>
-              </p><%= link_to room.name, room_path(room) %></p>
+            <%= turbo_stream_from "rooms" %>
+            <%= turbo_frame_tag "rooms" do %>
+              <%= render @rooms %>
             <% end %>
           </div>
-          <button type="button" class="btn">
-            <span class="tf-icons bi bi-plus-lg "></span>&nbsp;&nbsp;&nbsp;Add channel
-          </button>
+          <%= turbo_frame_tag Room.new %>
+          <%= link_to new_room_path, class: "btn w-100 text-start", data: { turbo_frame: dom_id(Room.new) } do %>
+            <span class="tf-icons bi bi-plus-lg me-2"></span>Add channel
+          <% end %>
         </div>
       </div>
       <div class="card accordion-item">
@@ -90,8 +66,8 @@
               <p><%= user.name %><p>
             <% end %>
           </div>
-          <button type="button" class="btn">
-            <span class="tf-icons bi bi-plus-lg "></span>&nbsp;&nbsp;&nbsp;Start a new message
+          <button type="button" class="btn w-100 text-start">
+            <span class="tf-icons bi bi-plus-lg me-2"></span>&nbsp;&nbsp;&nbsp;Start a new message
           </button>
         </div>
       </div>

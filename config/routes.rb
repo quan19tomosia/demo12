@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'rooms/index'
+  resources :users, only: [:index] do
+    member do
+      patch :ban
+    end
+  end
   resources :appointments
   resources :patients
   resources :physicians

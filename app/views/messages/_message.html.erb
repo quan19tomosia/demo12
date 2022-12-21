@@ -1,0 +1,15 @@
+<div
+  class="bs-toast toast fade show bg-secondary"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true"
+>
+  <div class="toast-header">
+    <%# <i class="bx bx-bell me-2"></i> %>
+    <div class="me-auto fw-semibold"><%= message.user.name %></div>
+    <%# <small>11 mins ago</small> %>
+  </div>
+  <div class="toast-body mb-3">
+    <%= message.body %>
+  </div>
+</div>

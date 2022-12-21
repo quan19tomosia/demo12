@@ -8,3 +8,8 @@
 
 puts "\n== Seeding the database with fixtures =="
 system("bin/rails db:fixtures:load")
+
+User.all.each do |user|
+  user.avatar.attach(io: File.open('app/assets/images/default_avatar.jpg'), filename: 'default_avatar.jpg', content_type: 'image/png')
+  user.update(confirmed_at: DateTime.now)
+end
