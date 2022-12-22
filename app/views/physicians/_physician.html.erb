@@ -5,7 +5,7 @@
     <td><%= number_to_phone_vi(physician.user.phone) %></td>
     <td><%= physician.speciality %></td>
     <td><%= physician.degree %></td>
-    <td></td>
+    <td><span><i class="bi bi-star me-2" style="-webkit-text-stroke: 1px; color: #ee9b00"></i><small><strong><%= rate(physician) ? rate(physician) : 'N/A' %></strong></small></span></td>
     <td>
       <div class="dropdown">
         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
