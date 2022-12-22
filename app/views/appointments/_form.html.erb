@@ -11,13 +11,11 @@
   </div>
   <div class="mb-3">
     <%= form.label :physician, "Physicians", class: "form-label" %>
-    <%# Display name issue block %>
-    <%= form.collection_select(:physician_id, @physicians, :id, :user, {prompt: "Select a physician"}, class: "form-select") %>
+    <%= form.select :physician_id, Physician.all.map { |physician| [physician.user.name, physician.id] }, { prompt: "Select a physician" }, {class: "form-select"} %>
   </div>
   <div class="mb-3">
     <%= form.label :patient, "Patients", class: "form-label" %>
-    <%# Display name issue block %>
-    <%= form.collection_select(:patient_id, @patients, :id, :user, {prompt: "Select a patient"}, class: "form-select") %>
+    <%= form.select :patient_id, Patient.all.map { |patient| [patient.user.name, patient.id] }, { prompt: "Select a patient" }, { class: "form-select" } %>
   </div>
   <% if appointment.errors.any? %>
     <div style="color: red">
