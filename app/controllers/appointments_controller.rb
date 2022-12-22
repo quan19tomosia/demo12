@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments or /appointments.json
   def index
     @search = Appointment.ransack(params[:q])
-    @pagy, @appointments = pagy(@search.result(distinct: true), items: 10)
+    @pagy, @appointments = pagy(@search.result(distinct: true).order(schedule: :desc), items: 10)
   end
 
   # GET /appointments/1 or /appointments/1.json

@@ -4,9 +4,57 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-patient1:
+patient_quanghuy:
   user: quanghuy
-  phone: 0123456789
-patient2:
+  address: Hoàng Mai, Hà Nội
+patient_minhquang:
   user: minhquang
-  phone: 0912345678
+  address: Tây Hồ, Hà Nội
+patient_trongquy:
+  user: trongquy
+  address: Đống Đa, Hà Nội
+patient_duyduong:
+  user: duyduong
+  address: Cầu Giấy, Hà Nội
+patient_lananh:
+  user: lananh
+  address: Đống Đa, Hà Nội
+patient_nhatnam:
+  user: nhatnam
+  address: Hoàn Kiếm, Hà Nội 
+patient_huyenanh:
+  user: huyenanh
+  address: Ba Đình, Hà Nội
+patient_thuthuy:
+  user: thuthuy
+  address: Đống Đa, Hà Nội
+patient_maihuong:
+  user: maihuong
+  address: Thanh Xuân, Hà Nội 
+patient_truongan:
+  user: truongan
+  address: Ba Đình, Hà Nội
+patient_ngochai:
+  user: ngochai
+  address: Cầu Giấy, Hà Nội
+patient_vancuong:
+  user: vancuong
+  address: Thanh Xuân, Hà Nội 
+patient_thungan:
+  user: thungan
+  address: Cầu Giấy, Hà Nội 
+patient_thuha:
+  user: thuha
+  address: Hoàn Kiếm, Hà Nội 
+patient_anhhong:
+  user: anhhong
+  address: Hoàn Kiếm, Hà Nội 
+patient_trantien:
+  user: trantien
+  address: Tây Hồ, Hà Nội
+patient_thanhcong:
+  user: thanhcong
+  address: Hoàn Kiếm, Hà Nội 
+patient_quanghieu:
+  user: quanghieu
+  address: Đống Đa, Hà Nội 

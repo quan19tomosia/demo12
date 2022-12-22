@@ -4,38 +4,73 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-physician1:
+physician_maianh:
   user: maianh
   degree: Thạc sĩ Y học Lâm sàng
   education: Đại học Y Hà Nội
   speciality: Y học thể thao
   experience:
   about:
-physician2:
+physician_xuanthanh:
   user: xuanthanh
   degree: Bác sĩ chuyên khoa I
   education: Đại học Y Dược Thành phố Hồ Chí Minh
   speciality: Nhãn khoa
   experience:
   about:
-physician3:
+physician_phuongnam:
   user: phuongnam
   degree: Tiến sĩ Y khoa
   education: Đại học Dược Hà Nội
   speciality: Tim mạch
   experience:
   about:
-physician4:
+physician_duyanh:
   user: duyanh
   degree: Bác sĩ chuyên khoa II
   education: Đại học Y Hà Nội
   speciality: Phẫu thuật chỉnh hình
   experience:
   about:
-physician5:
+physician_thucanh:
   user: thucanh
   degree: Thạc sĩ
   education: Đại học Y Hà Nội
   speciality: Mắt
   experience:
   about:
+physician_quocdat:
+  user: quocdat
+  degree: Tiến sĩ
+  education: Đại Học Y Dược - ĐHQGHN
+  speciality: Dị ứng và miễn dịch học
+  experience:
+  about: 
+physician_tuananh:
+  user: tuananh
+  degree: Bác sĩ chuyên khoa II
+  education: Đại học Dược Hà Nội
+  speciality: Răng hàm mặt
+  experience:
+  about: 
+physician_maitrang:
+  user: maitrang
+  degree: Thạc sĩ
+  education: Học viện Quân y
+  speciality: Y học thể thao
+  experience:
+  about: 
+physician_anhtung:
+  user: anhtung
+  degree: Bác sĩ chuyên khoa định hướng
+  education: Đại Học Y Dược - ĐHQGHN
+  speciality: Tai mũi họng
+  experience:
+  about: 
+physician_phuonganh:
+  user: phuonganh
+  degree: Bác sĩ chuyên khoa I
+  education: Học viện Quân y
+  speciality: Tim mạch
+  experience:
+  about: 
