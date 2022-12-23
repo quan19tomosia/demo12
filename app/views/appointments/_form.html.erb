@@ -1,28 +1,34 @@
 <%= form_with(model: appointment) do |form| %>
   <div class="mb-3">
-    <%= form.label :schedule, "Datetime", class: "col-md-2 col-form-label" %>
-    <div class="col-md-10">
-      <%= form.datetime_local_field :schedule, min: Date.tomorrow, class: "form-control" %>
-    </div>
-  </div>
-  <div class="mb-3">
     <%= form.label :service, "Services", class: "form-label" %>
     <%= form.collection_select :service_id, @services, :id, :name, {prompt: "Select a service"}, class: "form-select" %>
   </div>
   <div class="mb-3">
-    <%= form.label :physician, "Physicians", class: "form-label" %>
-    <%= form.select :physician_id, Physician.all.map { |physician| [physician.user.name, physician.id] }, { prompt: "Select a physician" }, {class: "form-select"} %>
+    <%= form.label :patient, "Patients", class: "form-label" %>
+    <%= form.select :patient_id, @patients, { prompt: "Select a patient" }, { class: "form-select" } %>
+    <div id="div-patient" style="display: none; background-color: red">
+      patient
+      <%# not done %>
+    </div>
   </div>
   <div class="mb-3">
-    <%= form.label :patient, "Patients", class: "form-label" %>
-    <%= form.select :patient_id, Patient.all.map { |patient| [patient.user.name, patient.id] }, { prompt: "Select a patient" }, { class: "form-select" } %>
+    <%= form.label :physician, "Physicians", class: "form-label" %>
+    <%= form.select :physician_id, @physicians, { prompt: "Select a physician" }, {class: "form-select"} %>
+    <div id="div-physician" style="display: none; background-color: red">
+      <label>physician</label>
+      <%# not done %>
+    </div>
   </div>
+  <div class="mb-3">
+    <%= form.label :schedule, "Schedule", class: "col-md-2 col-form-label" %>
+    <%= form.date_field :schedule, min: Date.tomorrow, class: "form-control" %>
+  </div>
+
   <% if appointment.errors.any? %>
     <div style="color: red">
       <h2>
         <%= pluralize(appointment.errors.count, "error" ) %> prohibited this appointment from being saved:
       </h2>
-
       <ul>
         <% appointment.errors.each do |error| %>
           <li>
@@ -36,3 +42,5 @@
     <%= form.submit nil, class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<%= javascript_include_tag 'appointment' %>

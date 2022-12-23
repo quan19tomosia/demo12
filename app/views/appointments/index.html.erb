@@ -17,6 +17,14 @@
     <div class="col-lg-2 col-md-3">
       <%= f.select :state_eq, options_for_select(states_collection, @search.state_eq), {}, { onchange: "this.form.submit()", class: "form-select" } %>
     </div>
+    <div class="col-lg-3 col-md-4 d-flex align-items-center justify-content-between">
+      <label class="text-uppercase me-3" style="font-size: 0.75rem; font-weight: 500; color: #566a7f;">From</label>
+      <%= f.date_field :schedule_gteq, { onchange: "this.form.submit()", class: "form-control" } %>
+    </div>
+    <div class="col-lg-3 col-md-4 d-flex align-items-center justify-content-between">
+      <label class="text-uppercase me-3" style="font-size: 0.75rem; font-weight: 500; color: #566a7f;">To</label>
+      <%= f.date_field :schedule_lteq, { onchange: "this.form.submit()", class: "form-control" } %>
+    </div>
   </div>
 <% end %>
 

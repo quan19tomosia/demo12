@@ -7,3 +7,7 @@ import * as bootstrap from "bootstrap"
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+
+import jquery from "jquery"
+window.$ = jquery
+window.jQuery = jquery

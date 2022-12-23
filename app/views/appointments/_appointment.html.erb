@@ -4,7 +4,7 @@
     <td><%= appointment.physician.user.name %></td>
     <td><%= appointment.service.name %></td>
     <td><%= appointment.schedule.strftime("%d-%m-%Y") %></td>
-    <td><%= appointment.schedule.strftime("%H:%m") %></td>
+    <td><%= appointment.schedule.strftime("%H:%M") %></td>
     <td><%= appointment.patient.user.phone %></td>
     <td><span class="badge rounded-pill bg-<%= badge_class(appointment.state) %>"><%= appointment.state %></span></td>
     <td>

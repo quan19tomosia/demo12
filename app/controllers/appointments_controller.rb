@@ -14,8 +14,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   def new
     @services = Service.where(status: Service.statuses[:active])
-    @patients = Patient.all
-    @physicians = Physician.all
+    @patients = Patient.includes(:user).where(user: { locked_at: nil }).map { |patient| [patient.user.name, patient.id] }
+    @physicians = Physician.includes(:user).where(user: { locked_at: nil }).map { |physician| [physician.user.name, physician.id] }
     @appointment = Appointment.new
   end
 
@@ -61,6 +61,18 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to appointments_url, notice: "Appointment was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def check
+    date = params[:date].to_date
+
+    @times = Appointment.where(physician_id: params[:physician_id]).where(schedule: date.beginning_of_day..date.end_of_day).pluck(:schedule)
+    @times = @times.map { |e| e.strftime("%I:%M%p")} unless @times.nil?
+    
+    respond_to do |format|
+      format.json { render json: @times.to_json }
+      format.html
     end
   end
 

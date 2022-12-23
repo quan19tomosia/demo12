@@ -8,7 +8,7 @@ appointment1:
   physician: physician_maianh
   patient: patient_minhquang
   service: one
-  schedule: 18-11-2022
+  schedule: 18-11-2022 09:30:00
   diagnose: abcxyz
   state: 2
   rate: 5
@@ -18,7 +18,7 @@ appointment2:
   physician: physician_duyanh
   patient: patient_thuthuy
   service: two
-  schedule: 19-11-2022
+  schedule: 19-11-2022 09:00:00
   diagnose: xyzabc
   state: 2
   rate: 4
@@ -28,7 +28,7 @@ appointment3:
   physician: physician_maitrang
   patient: patient_truongan
   service: one
-  schedule: 20-11-2022
+  schedule: 20-11-2022 14:00:00
   diagnose:
   state: 3
   rate:
@@ -38,7 +38,7 @@ appointment4:
   physician: physician_maianh
   patient: patient_thuha
   service: three
-  schedule: 20-11-2022
+  schedule: 20-11-2022 14:30:00
   diagnose: diagnose4
   state: 2
   rate: 5
@@ -48,7 +48,7 @@ appointment5:
   physician: physician_maitrang
   patient: patient_anhhong
   service: nine
-  schedule: 25-11-2022
+  schedule: 25-11-2022 10:00:00
   diagnose: diagnose5
   state: 2
   rate: 4
@@ -58,7 +58,7 @@ appointment6:
   physician: physician_duyanh
   patient: patient_quanghieu
   service: thirteen
-  schedule: 27-11-2022
+  schedule: 27-11-2022 10:00:00
   diagnose: diagnose6
   state: 2
   rate: 5
@@ -68,7 +68,7 @@ appointment7:
   physician: physician_quocdat
   patient: patient_thanhcong
   service: twelve
-  schedule: 30-11-2022
+  schedule: 30-11-2022 15:00:00
   diagnose:
   state: 3
   rate:
@@ -78,7 +78,7 @@ appointment8:
   physician: physician_duyanh
   patient: patient_duyduong
   service: eleven
-  schedule: 02-12-2022
+  schedule: 02-12-2022 09:00:00
   diagnose: diagnose8
   state: 2
   rate: 3
@@ -88,7 +88,7 @@ appointment9:
   physician: physician_phuonganh
   patient: patient_lananh
   service: seven
-  schedule: 03-12-2022
+  schedule: 03-12-2022 13:30:00
   diagnose: diagnose9
   state: 2
   rate: 4
@@ -98,7 +98,7 @@ appointment10:
   physician: physician_maitrang
   patient: patient_thuthuy
   service: eight
-  schedule: 05-12-2022
+  schedule: 05-12-2022 16:00:00
   diagnose: diagnose10
   state: 2
   rate: 5
@@ -108,7 +108,7 @@ appointment11:
   physician: physician_maitrang
   patient: patient_huyenanh
   service: ten
-  schedule: 08-12-2022
+  schedule: 08-12-2022 10:30:00
   diagnose: diagnose11
   state: 2
   rate: 5
@@ -118,7 +118,7 @@ appointment12:
   physician: physician_thucanh
   patient: patient_thuha
   service: four
-  schedule: 14-12-2022
+  schedule: 14-12-2022 10:00:00
   diagnose: diagnose12
   state: 2
   rate: 5
@@ -128,7 +128,7 @@ appointment13:
   physician: physician_tuananh
   patient: patient_minhquang
   service: five
-  schedule: 26-12-2022
+  schedule: 26-12-2022 13:30:00
   diagnose:
   state: 1
   rate:
@@ -138,7 +138,7 @@ appointment14:
   physician: physician_phuonganh
   patient: patient_thungan
   service: eleven
-  schedule: 27-12-2022
+  schedule: 27-12-2022 10:00:00
   diagnose:
   state: 1
   rate:
@@ -148,7 +148,7 @@ appointment15:
   physician: physician_duyanh
   patient: patient_nhatnam
   service: three
-  schedule: 27-12-2022
+  schedule: 27-12-2022 10:30:00
   diagnose:
   state: 1
   rate:
@@ -158,7 +158,7 @@ appointment16:
   physician: physician_thucanh
   patient: patient_maihuong
   service: eleven
-  schedule: 29-12-2022
+  schedule: 29-12-2022 08:30:00
   diagnose:
   state: 0
   rate:
@@ -168,7 +168,7 @@ appointment17:
   physician: physician_phuonganh
   patient: patient_huyenanh
   service: seven
-  schedule: 29-12-2022
+  schedule: 29-12-2022 14:00:00
   diagnose:
   state: 1
   rate:
@@ -178,7 +178,7 @@ appointment18:
   physician: physician_quocdat
   patient: patient_trongquy
   service: two
-  schedule: 30-12-2022
+  schedule: 30-12-2022 15:30:00
   diagnose:
   state: 0
   rate:
@@ -188,7 +188,7 @@ appointment19:
   physician: physician_anhtung
   patient: patient_trantien
   service: three
-  schedule: 31-12-2022
+  schedule: 31-12-2022 10:00:00
   diagnose:
   state: 0
   rate:
@@ -198,7 +198,7 @@ appointment20:
   physician: physician_duyanh
   patient: patient_ngochai
   service: two
-  schedule: 31-12-2022
+  schedule: 31-12-2022 10:00:00
   diagnose:
   state: 0
   rate:
