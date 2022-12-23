@@ -10,7 +10,7 @@
         <%= @appointment.state %>
       </span>
     </div>
-    <div class="card-subtitle text-muted mb-3"><%= @appointment.service.name %></div>
+    <div class="card-subtitle mb-3"><strong>Service</strong>: <%= @appointment.service.name %></div>
     <figure>
       <blockquote>
         <p class="card-text"><strong>Patient</strong>: <%= @appointment.patient.user.name %></p>
@@ -22,24 +22,23 @@
       </figcaption>
     </figure>
     <div class="row">
-      <div class="col-md">
-            <label class="col-form-label">Date</label>
-            <div>
-              <div class="input-group input-group-merge">
-                <input type="text" class="form-control" disabled />
-                <span class="input-group-text"><i class="bi bi-calendar"></i></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <label class="col-form-label">Time</label>
-            <div>
-              <div class="input-group input-group-merge">
-                <input type="text" class="form-control" disabled />
-                <span class="input-group-text"><i class="bi bi-clock"></i></span>
-              </div>
-            </div>
-          </div>
+      <div class="col-md input-group input-group-merge align-items-center">
+        <label class="me-2"><strong>Date</strong>:</label>
+        <small class="me-2"><%= @appointment.schedule.strftime("%d-%m-%Y") %></small>
+        <i class="bi bi-calendar"></i>
+      </div>
+      <div class="col-md input-group input-group-merge align-items-center">
+        <label class="me-2"><strong>Time</strong>:</label>
+        <small class="me-2"><%= @appointment.schedule.strftime("%H:%M") %></small>
+        <i class="bi bi-clock"></i>
+      </div>
+    </div>
+    <label class="col-sm-2"><strong>Note</strong></label>
+    <div>
+      <div class="input-group input-group-merge">
+        <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
+        <textarea class="form-control" disabled></textarea>
+      </div>
     </div>
     <dl class="row mt-2">
       <dt class="col-sm-3">Diagnose</dt>
@@ -47,7 +46,7 @@
         <p><%= @appointment.diagnose %></p>
       </dd>
     </dl>
-    <label class="col-sm-2 form-label">Comment</label>
+    <label class="col-sm-2"><strong>Comment</strong></label>
     <div>
       <div class="input-group input-group-merge">
         <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
@@ -59,13 +58,6 @@
       <dd class="col-sm-9">
       </dd>
     </dl>
-    <label class="col-sm-2 form-label">Note</label>
-    <div>
-      <div class="input-group input-group-merge">
-        <span class="input-group-text"><i class="bi bi-chat-left-dots"></i></span>
-        <textarea class="form-control" disabled></textarea>
-      </div>
-    </div>
   </div>
   <div class="col-md">
     <h6 class="mt-2 text-muted">Physician</h6>
@@ -73,15 +65,28 @@
       <img class="card-img-top"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Nd5QJdhzApS-CVTJD26Sgf1G1qxMo2WL7w&usqp=CAU"
         alt="Card image cap" />
-      <div class="card-body">
-        <h5 class="card-title">
-          <%= @appointment.physician.user.name %>
-        </h5>
-        <p class="card-text">
+      <div class="card-body row">
+        <div class="col-md">
+          <h5 class="card-title">
+            <%= @appointment.physician.user.name %>
+          </h5>
           <small>
             <%= @appointment.physician.degree %>
           </small>
-        </p>
+        </div>
+        <div class="col-md text-end">
+          <div>
+            <small>
+              <%= number_to_phone_vi(@appointment.physician.user.phone) %>
+            </small>
+          </div>
+          <span>
+            <small>
+              <strong><%= rate(@appointment.physician) ? rate(@appointment.physician) : 'N/A' %></strong>
+            </small>
+            <i class="bi bi-star me-2" style="-webkit-text-stroke: 1px; color: #ee9b00"></i>
+          </span>
+        </div>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">

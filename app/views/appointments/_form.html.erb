@@ -19,9 +19,10 @@
       <%# not done %>
     </div>
   </div>
-  <div class="mb-3">
+  <div class="mb-3 d-flex align-items-center", style="display: none" id="div-schedule">
     <%= form.label :schedule, "Schedule", class: "col-md-2 col-form-label" %>
-    <%= form.date_field :schedule, min: Date.tomorrow, class: "form-control" %>
+    <%= form.date_field :schedule_day, min: Date.tomorrow, class: "form-control col-md"%>
+    <%= form.select :schedule_time, options_for_select(["08:30", "09:30", "10:30"]), {}, { class: "form-select col-md", style: "display: none" } %>
   </div>
 
   <% if appointment.errors.any? %>

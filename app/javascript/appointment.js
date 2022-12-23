@@ -1,5 +1,5 @@
 window.addEventListener("load", (event) => {
-  document.getElementById("appointment_patient_id").addEventListener("change", function(){
+  $("#appointment_patient_id").on("change", function(){
     if(this.value != ""){
       var patient_id = this.value;
 
@@ -11,7 +11,7 @@ window.addEventListener("load", (event) => {
           patient_id: patient_id,
         },
         success: function(res){
-          alert("Success " + res);
+          console.log(res);
         },
         error: function(res){
           alert("Something happened " + res)
@@ -25,7 +25,7 @@ window.addEventListener("load", (event) => {
     }
   });
 
-  document.getElementById("appointment_physician_id").addEventListener("change", function(){
+  $("#appointment_physician_id").on("change", function(){
     if(this.value != ""){
       var physician_id = this.value;
 
@@ -37,7 +37,7 @@ window.addEventListener("load", (event) => {
           physician_id: physician_id,
         },
         success: function(res){
-          alert(res);
+          console.log(res);
         },
         error: function(res){
           alert(res);
@@ -45,30 +45,38 @@ window.addEventListener("load", (event) => {
       })
 
       $("#div-physician").show();
+      $("#div-schedule").show();
     }
     else {
       $("#div-physician").hide();
+      $("#div-schedule").hide();
     }
   })
 
-  document.getElementById("appointment_schedule").addEventListener("change", function(){
+  $("#appointment_schedule_day").on("change", function(){
     var physician_id = $("#appointment_physician_id").val();
-    var date = $("#appointment_schedule").val();
-  
-    $.ajax({
-      url: "/check",
-      type: "GET",
-      dataType: "json",
-      data: {
-        physician_id: physician_id,
-        date: date,
-      },
-      success: function(res){
-        console.log(res)
-      },
-      error: function(res){
-        alert("Something happened" + res);
-      }
-    })
+
+    if(this.value != ""){
+      $.ajax({
+        url: "/check",
+        type: "GET",
+        dataType: "json",
+        data: {
+          physician_id: physician_id,
+          date: this.value,
+        },
+        success: function(res){
+          console.log(res)
+        },
+        error: function(res){
+          alert("Something happened" + res);
+        }
+      })
+
+      $("#appointment_schedule_time").show();
+    }
+    else {
+      $("#appointment_schedule_time").hide();
+    }
   })
 })

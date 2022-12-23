@@ -16,7 +16,10 @@
           <p class="mb-0"><small><%= number_to_phone_vi(@physician.user.phone) %></small></p>
         </div>
         <div class="col-3">
-          <span><i class="bi bi-star me-2" style="-webkit-text-stroke: 1px; color: #ee9b00"></i><small><strong><%= rate(@physician) ? rate(@physician) : 'N/A' %></strong></small></span>
+          <span>
+            <i class="bi bi-star me-2" style="-webkit-text-stroke: 1px; color: #ee9b00"></i>
+            <small><strong><%= rate(@physician) ? rate(@physician) : 'N/A' %></strong></small>
+          </span>
           <p class="mb-0"><small>Appointments: <%= complete_count(@physician) %></small></p>
         </div>
       </div>
