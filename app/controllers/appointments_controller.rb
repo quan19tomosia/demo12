@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show edit update destroy ]
+  before_action :set_select_collections, only: [:new, :create, :edit, :update]
 
   # GET /appointments or /appointments.json
   def index
@@ -13,17 +14,11 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
-    @services = Service.where(status: Service.statuses[:active])
-    @patients = Patient.includes(:user).where(user: { locked_at: nil }).map { |patient| [patient.user.name, patient.id] }
-    @physicians = Physician.includes(:user).where(user: { locked_at: nil }).map { |physician| [physician.user.name, physician.id] }
     @appointment = Appointment.new
   end
 
   # GET /appointments/1/edit
   def edit
-    @services = Service.where(status: Service.statuses[:active])
-    @patients = Patient.all
-    @physicians = Physician.all
   end
 
   # POST /appointments or /appointments.json
@@ -68,7 +63,7 @@ class AppointmentsController < ApplicationController
     date = params[:date].to_date
 
     @times = Appointment.where(physician_id: params[:physician_id]).where(schedule: date.beginning_of_day..date.end_of_day).pluck(:schedule)
-    @times = @times.map { |e| e.strftime("%I:%M%p")} unless @times.nil?
+    @times = @times.map { |e| e.strftime("%H:%M")} unless @times.nil?
     
     respond_to do |format|
       format.json { render json: @times.to_json }
@@ -85,5 +80,11 @@ class AppointmentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def appointment_params
       params.require(:appointment).permit(:service_id, :patient_id, :physician_id, :schedule_day, :schedule_time)
+    end
+
+    def set_select_collections
+      @services = Service.where(status: Service.statuses[:active]).map { |service| [service.name, service.id] }
+      @patients = Patient.includes(:user).where(user: { locked_at: nil }).map { |patient| [patient.user.name, patient.id] }
+      @physicians = Physician.includes(:user).where(user: { locked_at: nil }).map { |physician| [physician.user.name, physician.id] }
     end
 end

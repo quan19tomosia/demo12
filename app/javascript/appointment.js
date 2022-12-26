@@ -1,4 +1,29 @@
 window.addEventListener("load", (event) => {
+  function check(){
+    $.ajax({
+      url: "/check",
+      type: "GET",
+      dataType: "json",
+      data: {
+        physician_id: $("#appointment_physician_id").val(),
+        date: $("#appointment_schedule_day").val(),
+      },
+      success: function(result){
+        console.log(result);
+        $("#appointment_schedule_time option").prop("disabled", false);
+        $("#appointment_schedule_time option").each(function(i, v){
+          $.each(result, function(ii, vv){
+            if(v.value == vv){
+              $(v).prop('disabled', true);
+            }
+          })
+        })
+      },
+      error: function(result){
+        alert("Something happened " + result);
+      }
+    })
+  }
   $("#appointment_patient_id").on("change", function(){
     if(this.value != ""){
       var patient_id = this.value;
@@ -11,7 +36,19 @@ window.addEventListener("load", (event) => {
           patient_id: patient_id,
         },
         success: function(res){
-          console.log(res);
+          $("#div-patient").empty();
+
+          var patient = '<div class="col-md"> \
+                          <dl class="row mt-2"> \
+                            <dt class="col-sm-3">Name</dt> \
+                            <dd class="col-sm-9">' + res.user.name + '</dd> \
+                            <dt class="col-sm-3">Phone</dt> \
+                            <dd class="col-sm-9">' + (res.user.phone ? res.user.phone : 'N/A') + '</dd> \
+                            <dt class="col-sm-3">Email</dt> \
+                            <dd class="col-sm-9">' + res.user.email + '</dd> \
+                          </dl> \
+                        </div>';
+          $("#div-patient").append(patient);
         },
         error: function(res){
           alert("Something happened " + res)
@@ -37,12 +74,30 @@ window.addEventListener("load", (event) => {
           physician_id: physician_id,
         },
         success: function(res){
-          console.log(res);
+          $("#div-physician").empty();
+          var physician = '<div class="col-md"> \
+                            <dl class="row mt-2"> \
+                              <dt class="col-sm-3">Name</dt> \
+                              <dd class="col-sm-9">' + res.user.name + '</dd> \
+                              <dt class="col-sm-3">Email</dt> \
+                              <dd class="col-sm-9">' + res.user.email + '</dd> \
+                              <dt class="col-sm-3">Phone</dt> \
+                              <dd class="col-sm-9">' + (res.user.phone ? res.user.phone : 'N/A') + '</dd> \
+                              <dt class="col-sm-3">Speciality</dt> \
+                              <dd class="col-sm-9">' + res.speciality + '</dd> \
+                            </dl> \
+                          </div>';
+          $("#div-physician").append(physician);
+          
         },
         error: function(res){
           alert(res);
         }
       })
+
+      if($("#appointment_schedule_day").val() != ""){
+        check();
+      }
 
       $("#div-physician").show();
       $("#div-schedule").show();
@@ -57,21 +112,7 @@ window.addEventListener("load", (event) => {
     var physician_id = $("#appointment_physician_id").val();
 
     if(this.value != ""){
-      $.ajax({
-        url: "/check",
-        type: "GET",
-        dataType: "json",
-        data: {
-          physician_id: physician_id,
-          date: this.value,
-        },
-        success: function(res){
-          console.log(res)
-        },
-        error: function(res){
-          alert("Something happened" + res);
-        }
-      })
+      check();
 
       $("#appointment_schedule_time").show();
     }

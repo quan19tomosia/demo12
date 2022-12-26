@@ -1,28 +1,42 @@
 <%= form_with(model: appointment) do |form| %>
   <div class="mb-3">
     <%= form.label :service, "Services", class: "form-label" %>
-    <%= form.collection_select :service_id, @services, :id, :name, {prompt: "Select a service"}, class: "form-select" %>
+    <%= form.select :service_id, @services, { include_blank: "Select a service" }, { class: "form-select" } %>
   </div>
   <div class="mb-3">
     <%= form.label :patient, "Patients", class: "form-label" %>
-    <%= form.select :patient_id, @patients, { prompt: "Select a patient" }, { class: "form-select" } %>
-    <div id="div-patient" style="display: none; background-color: red">
-      patient
-      <%# not done %>
-    </div>
+    <%= form.select :patient_id, @patients, { include_blank: "Select a patient" }, { class: "form-select" } %>
+    <div id="div-patient" style="display: none"></div>
   </div>
   <div class="mb-3">
     <%= form.label :physician, "Physicians", class: "form-label" %>
-    <%= form.select :physician_id, @physicians, { prompt: "Select a physician" }, {class: "form-select"} %>
-    <div id="div-physician" style="display: none; background-color: red">
-      <label>physician</label>
-      <%# not done %>
-    </div>
+    <%= form.select :physician_id, @physicians, { include_blank: "Select a physician" }, {class: "form-select"} %>
+    <div id="div-physician" style="display: none"></div>
   </div>
-  <div class="mb-3 d-flex align-items-center", style="display: none" id="div-schedule">
-    <%= form.label :schedule, "Schedule", class: "col-md-2 col-form-label" %>
-    <%= form.date_field :schedule_day, min: Date.tomorrow, class: "form-control col-md"%>
-    <%= form.select :schedule_time, options_for_select(["08:30", "09:30", "10:30"]), {}, { class: "form-select col-md", style: "display: none" } %>
+  <div class="mb-3", style="display: none" id="div-schedule">
+    <div class="d-flex align-items-center">
+      <%= form.label :schedule, "Schedule", class: "col-md-2 col-form-label" %>
+      <%= form.date_field :schedule_day, min: Date.tomorrow, class: "form-control col-md"%>
+      <%= form.select :schedule_time, options_for_select(["08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00"]), {}, { class: "form-select col-md", style: "display: none" } %>
+    </div>
+    <%# <div id="appointment_schedule_time" style="display: none">
+      <button class="btn btn-time" value="08:00">08:00</button>
+      <button class="btn btn-time" value="08:30">08:30</button>
+      <button class="btn btn-time" value="09:00">09:00</button>
+      <button class="btn btn-time" value="09:30">09:30</button>
+      <button class="btn btn-time" value="10:00">10:00</button>
+      <button class="btn btn-time" value="10:30">10:30</button>
+      <button class="btn btn-time" value="11:00">11:00</button>
+      <button class="btn btn-time" value="11:30">11:30</button>
+      <button class="btn btn-time" value="13:30">13:30</button>
+      <button class="btn btn-time" value="14:00">14:00</button>
+      <button class="btn btn-time" value="14:30">14:30</button>
+      <button class="btn btn-time" value="15:00">15:00</button>
+      <button class="btn btn-time" value="15:30">15:30</button>
+      <button class="btn btn-time" value="16:00">16:00</button>
+      <button class="btn btn-time" value="16:30">16:30</button>
+      <button class="btn btn-time" value="17:00">17:00</button>
+    </div> %>
   </div>
 
   <% if appointment.errors.any? %>

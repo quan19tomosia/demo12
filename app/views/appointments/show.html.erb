@@ -62,9 +62,7 @@
   <div class="col-md">
     <h6 class="mt-2 text-muted">Physician</h6>
     <div class="card">
-      <img class="card-img-top"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Nd5QJdhzApS-CVTJD26Sgf1G1qxMo2WL7w&usqp=CAU"
-        alt="Card image cap" />
+      <%= image_tag @appointment.physician.image, { class: "card-img-top" } if @appointment.physician.image.attached? %>
       <div class="card-body row">
         <div class="col-md">
           <h5 class="card-title">

@@ -9,6 +9,10 @@ class PhysiciansController < ApplicationController
 
   # GET /physicians/1 or /physicians/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @physician.to_json(include: :user) }
+    end
   end
 
   # GET /physicians/new
