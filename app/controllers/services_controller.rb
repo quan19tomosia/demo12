@@ -9,6 +9,10 @@ class ServicesController < ApplicationController
 
   # GET /services/1 or /services/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @service.to_json }
+    end
   end
 
   # GET /services/new

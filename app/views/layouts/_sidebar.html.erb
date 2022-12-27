@@ -74,13 +74,13 @@
       </li>
       <li class="menu-item <%= current_path?(physicians_path) %>">
         <%= link_to physicians_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bi bi-shield-plus"></i>
+          <i class="menu-icon tf-icons bi bi-person-badge-fill"></i>
           <div data-i18n="Tables">Physicians</div>
         <% end %>
       </li>
       <li class="menu-item <%= current_path?(patients_path) %>">
         <%= link_to patients_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bi bi-virus"></i>
+          <i class="menu-icon tf-icons bi bi-person-hearts"></i>
           <div data-i18n="Tables">Patients</div>
         <% end %>
       </li>
@@ -89,7 +89,7 @@
       </li>
       <li class="menu-item <%= current_path?(services_path) %>">
         <%= link_to services_path, class: "menu-link" do %>
-          <i class="menu-icon tf-icons bi bi-prescription2"></i>
+          <i class="menu-icon tf-icons bi bi-bandaid-fill"></i>
           <div data-i18n="Tables">Services</div>
         <% end %>
       </li>

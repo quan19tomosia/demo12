@@ -1,5 +1,5 @@
-<div class="container-xxl">
-  <div class="authentication-wrapper authentication-basic container-p-y">
+<div class="container-xxl">  
+  <div class="authentication-wrapper authentication-basic container-p-y">  
     <div class="authentication-inner">
       <div class="card">
         <div class="card-body">
@@ -57,10 +57,9 @@
               <span class="app-brand-text demo text-body fw-bolder">eHealth</span>
             </a>
           </div>
-          <h4 class="mb-2">Welcome to eHealth! 👋</h4>
-          <p class="mb-4">Please sign-in to your account and start the adventure</p>
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mb-3" }) do |f| %>
-            
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <h4 class="mb-2">Welcome to eHealth! 👋</h4>
+            <p class="mb-4">Please sign-in to your account and start the adventure</p>
             <div class="mb-3">
               <%= f.label :email, class: "form-label" %>
               <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", autofocus: true, autocomplete: "email" %>
@@ -68,14 +67,14 @@
             <div class="mb-3 form-password-toggle">
               <div class="d-flex justify-content-between">
                 <%= f.label :password, class: "form-label" %>
-                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
                   <%= link_to new_password_path(resource_name) do %>
                     <small>Forgot password?</small>
                   <% end %>
                 <% end %>
               </div>
               <div class="input-group input-group-merge">
-                <%= f.password_field :password, class: "form-control", placeholder: raw("&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;")%>
+                <%= f.password_field :password, class: "form-control", autocomplete: "current-password", placeholder: raw("&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;")%>
                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
               </div>
             </div>

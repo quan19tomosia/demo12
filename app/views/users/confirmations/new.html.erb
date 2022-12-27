@@ -1,27 +1,10 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
-
 <div class="container-xxl">
   <div class="authentication-wrapper authentication-basic container-p-y">
     <div class="authentication-inner py-4">
       <div class="card">
         <div class="card-body">
           <div class="app-brand justify-content-center">
-            <a href="index.html" class="app-brand-link gap-2">
+            <a href="#" class="app-brand-link gap-2">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -80,23 +63,21 @@
               <span class="app-brand-text demo text-body fw-bolder">eHealth</span>
             </a>
           </div>
-          <h4 class="mb-2">Forgot Password? 🔒</h4>
-          <p class="mb-4">Enter your email and we'll send you instructions to reset your password</p>
+          <h4 class="mb-2">Confirm Account? 💌</h4>
+          <p class="mb-4">Enter your email and we'll resend you instructions to confirm your account</p>
           <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
             <%= render "users/shared/error_messages", resource: resource %>
             
             <div class="mb-3">
               <%= f.label :email, class: "form-label" %>
-              <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", autofocus: true, autocomplete: "email" %>
+              <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
             </div>
-            <%= f.submit "Send Reset Link", class: "btn btn-primary d-grid w-100" %>
+            <div class="mb-3">
+              <%= f.submit "Resend confirmation instructions", class: "btn btn-primary d-grid w-100" %>
+            </div>
           <% end %>
-          <div class="text-center">
-            <%= link_to new_session_path(resource_name), class: "d-flex align-items-center justify-content-center" do %>
-              <i class="bi bi-chevron-left scaleX-n1-rtl me-1" style="-webkit-text-stroke: 1px"></i>
-              Back to login
-            <% end %>
-          </div>
+
+          <%= render "users/shared/links" %>
         </div>
       </div>
     </div>

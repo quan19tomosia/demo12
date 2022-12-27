@@ -56,6 +56,10 @@
     <dl class="row mt-2">
       <dt class="col-sm-3">Rate</dt>
       <dd class="col-sm-9">
+        <span>
+          <small class="me-2"><strong><%= @appointment.rate ? @appointment.rate : 'N/A' %></strong></small>
+          <i class="bi bi-star" style="-webkit-text-stroke: 1px; color: #ee9b00"></i>
+        </span>
       </dd>
     </dl>
   </div>

@@ -1,4 +1,4 @@
-window.addEventListener("load", (event) => {
+$(function (){
   function check(){
     $.ajax({
       url: "/check",
@@ -24,6 +24,42 @@ window.addEventListener("load", (event) => {
       }
     })
   }
+
+  $("#appointment_service_id").on("change", function(){
+    if(this.value != ""){
+      var service_id = this.value;
+      $("#div-service").empty();
+
+      $.ajax({
+        url: "/services/" + service_id,
+        type: "GET",
+        dataType: "json",
+        data: {
+          service_id: service_id
+        },
+        success: function(response){
+          var service = '<div class="col-md"> \
+                          <dl class="row mt-2"> \
+                            <dt class="col-sm-3">Name</dt> \
+                            <dd class="col-sm-9">' + response.name + '</dd> \
+                            <dt class="col-sm-3">Price</dt> \
+                            <dd class="col-sm-9">' + response.price + '</dd> \
+                          </dl> \
+                        </div>';
+          $("#div-service").append(service);
+        },
+        error: function(response){
+          alert("Something happened " + response);
+        }
+      })
+
+      $("#div-service").show();
+    }
+    else {
+      $("#div-service").hide();
+    }
+  })
+
   $("#appointment_patient_id").on("change", function(){
     if(this.value != ""){
       var patient_id = this.value;

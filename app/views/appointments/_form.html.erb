@@ -2,6 +2,7 @@
   <div class="mb-3">
     <%= form.label :service, "Services", class: "form-label" %>
     <%= form.select :service_id, @services, { include_blank: "Select a service" }, { class: "form-select" } %>
+    <div id="div-service" style="display: none"></div>
   </div>
   <div class="mb-3">
     <%= form.label :patient, "Patients", class: "form-label" %>
