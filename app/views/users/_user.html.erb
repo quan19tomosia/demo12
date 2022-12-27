@@ -12,11 +12,11 @@
       </button>
       <div class="dropdown-menu">
         <% if user.access_locked? %>
-          <%= link_to "#", class: "dropdown-item" do %>
+          <%= link_to ban_user_path(user), method: :patch, class: "dropdown-item" do %>
             <i class="bi bi-unlock me-1"></i> Activate
           <% end %>
         <% else %>
-          <%= link_to "#", class: "dropdown-item" do %>
+          <%= link_to ban_user_path(user), method: :patch, class: "dropdown-item" do %>
             <i class="bi bi-lock me-1"></i> Lock
           <% end %>
         <% end %>

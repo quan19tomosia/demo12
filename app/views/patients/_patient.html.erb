@@ -5,7 +5,7 @@
     <td><%= patient.user.phone %></td>
     <td><%= patient.address %></td>
     <td><%= last_visit(patient) %></td>
-    <td><span class="badge rounded-pill bg-<%= lock_badge_class(patient.user.access_locked?) %>"><%= patient.user.access_locked? ? "Banned" : "Active" %></span></td>
+    <td><span class="badge rounded-pill bg-<%= lock_badge_class(patient.user.access_locked?) %>"><%= patient.user.access_locked? ? "Locked" : "Active" %></span></td>
     <td>
       <div class="dropdown">
         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

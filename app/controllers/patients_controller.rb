@@ -9,6 +9,7 @@ class PatientsController < ApplicationController
 
   # GET /patients/1 or /patients/1.json
   def show
+    @pagy, @appointments = pagy(@patient.appointments.where(state: Appointment.states[:complete]), items: 10)
     respond_to do |format|
       format.html
       format.json { render json: @patient.to_json(include: :user) }

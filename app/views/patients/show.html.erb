@@ -1,10 +1,109 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @patient %>
+<div class="mb-4">
+  <div class="d-flex justify-content-between">
+    <h6><strong>Patient infomations</strong></h6>
+    <small>
+      Account status:
+      <span class="badge rounded-pill bg-<%= lock_badge_class(@patient.user.access_locked?) %>">
+        <%= @patient.user.access_locked? ? "Locked" : "Active" %>
+      </span>
+    </small>
+  </div>
+  <div class="demo-inline-spacing mt-3 mb-5">
+    <ul class="list-group">
+      <li class="list-group-item d-flex align-items-center">
+        <div class="col-sm-2">
+          <i class="bi bi-person-vcard me-2"></i>
+          Name:
+        </div>
+        <div class="col-sm-10">
+          <%= @patient.user.name %>
+        </div>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <div class="col-sm-2">
+          <i class="bi bi-envelope-at me-2"></i>
+          Email:
+        </div>
+        <div class="col-sm-10">
+          <%= @patient.user.email %>
+        </div>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <div class="col-sm-2">
+          <i class="bi bi-telephone me-2"></i>
+          Phone number:
+        </div>
+        <div class="col-sm-10">
+          <%= number_to_phone_vi(@patient.user.phone) %>
+        </div>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <div class="col-sm-2">
+          <i class="bi bi-geo-alt me-2"></i>
+          Address:
+        </div>
+        <div class="col-sm-10">
+          <%= @patient.address %>
+        </div>
+      </li>
+      <li class="list-group-item d-flex align-items-center">
+        <div class="col-sm-2">
+          <i class="bi bi-calendar2-check me-2"></i>
+          Last appointment:
+        </div>
+        <div class="col-sm-10">
+          <%= last_visit(@patient) %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
-<div>
-  <%= link_to "Edit this patient", edit_patient_path(@patient) %> |
-  <%= link_to "Back to patients", patients_path %>
+<h6><strong>Appointments history</strong></h6>
 
-  <%= button_to "Destroy this patient", @patient, method: :delete %>
+<% if @appointments.any? %>
+  <%== render partial: 'pagy/pagination', locals: { pagy: @pagy } %>
+
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+              <th>Service</th>
+              <th>Physician</th>
+              <th>Schedule</th>
+              <th>Diagnose</th>
+              <th>State</th>
+              <th>Created at</th>
+          </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+          <% @appointments.each do |appointment| %>
+            <tr>
+              <td><%= appointment.service.name %></td>
+              <td><%= appointment.physician.user.name %></td>
+              <td><%= appointment.schedule.strftime("%H:%M %d-%m-%Y") %></td>
+              <td></td>
+              <td><span class="badge rounded-pill bg-<%= badge_class(appointment.state) %>"><%= appointment.state %></span></td>
+              <td><%= appointment.created_at.strftime("%H:%M %d-%m-%Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <em>No record found!</em>
+<% end %>
+
+<div class="d-flex justify-content-between mt-5">
+  <div>
+    <%= link_to "Edit this patient", edit_patient_path(@patient) %> |
+    <%= link_to "Back to patients", patients_path %>
+  </div>
+  <div>
+    <%= button_to "Destroy this patient", @patient, method: :delete, class: "btn btn-danger" %>
+  </div>
 </div>

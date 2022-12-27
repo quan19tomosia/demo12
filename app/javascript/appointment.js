@@ -43,7 +43,7 @@ $(function (){
                             <dt class="col-sm-3">Name</dt> \
                             <dd class="col-sm-9">' + response.name + '</dd> \
                             <dt class="col-sm-3">Price</dt> \
-                            <dd class="col-sm-9">' + response.price + '</dd> \
+                            <dd class="col-sm-9">' + response.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'}); + '</dd> \
                           </dl> \
                         </div>';
           $("#div-service").append(service);

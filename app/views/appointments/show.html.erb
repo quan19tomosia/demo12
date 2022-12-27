@@ -16,7 +16,7 @@
         <p class="card-text"><strong>Patient</strong>: <%= @appointment.patient.user.name %></p>
       </blockquote>
       <figcaption class="blockquote-footer">
-        <%= link_to "#", class: "card-link" do %>
+        <%= link_to patient_path(@appointment.patient), class: "card-link" do %>
           <small>View appointments history this person</small>
         <% end %>
       </figcaption>
@@ -105,7 +105,7 @@
   </div>
 </div>
 
-<div style="display: flex; justify-content: space-between">
+<div class="d-flex justify-content-between">
   <div>
     <%= button_to "Destroy this appointment" , @appointment, method: :delete, class: "btn btn-danger" %>
   </div>
