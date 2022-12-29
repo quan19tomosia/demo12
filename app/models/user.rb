@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
   before_create :default_avatar
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   private
     def default_avatar
       avatar.attach(

@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ]
 
   def index
-    @rooms = Room.public_room
+    @public_rooms = Room.public_room
     @users = User.all_except(current_user)
   end
 
@@ -16,7 +16,6 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.save
         format.html { redirect_to rooms_path, noitice: "Channel was successfully created." }
-        format.json { render :index }
       end
     end
   end
@@ -31,10 +30,11 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @single_room = Room.find(params[:id])
-
-    @rooms = Room.public_room
+    @public_rooms = Room.public_room
     @users = User.all_except(current_user)
+
+    @message = Message.new
+    @messages = @room.messages.order(created_at: :asc)
 
     render 'index'
   end

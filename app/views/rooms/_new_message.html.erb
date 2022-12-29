@@ -1,4 +1,4 @@
-<%= form_with(model: @message) do |f| %>
+<%= form_with(model: [@room, @message]) do |f| %>
   <div class="input-group input-group-merge speech-to-text" style="bottom: -10px">
     <button type="submit" class="input-group-text">
       <i class="bi bi-send"></i>
