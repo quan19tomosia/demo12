@@ -11,7 +11,89 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <div class="col-xxl">
+      <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <small class="text-muted float-end">Account</small>
+        </div>
+        <div class="card-body">
+          <%= form.fields_for :user do |f| %>
+            <div class="row mb-3">
+              <%= form.label :name, class: "col-sm-2 col-form-label" %>
+              <div class="col-sm-10">
+                <%= form.text_field :name, class: "form-control", placeholder: "John Doe" %>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="basic-default-email">Email</label>
+              <div class="col-sm-10">
+                <div class="input-group input-group-merge">
+                  <input
+                    type="text"
+                    id="basic-default-email"
+                    class="form-control"
+                    placeholder="john.doe"
+                    aria-label="john.doe"
+                    aria-describedby="basic-default-email2"
+                  />
+                  <span class="input-group-text" id="basic-default-email2">@example.com</span>
+                </div>
+                <div class="form-text">You can use letters, numbers & periods</div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="basic-default-phone">Phone No</label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  id="basic-default-phone"
+                  class="form-control phone-mask"
+                  placeholder="658 799 8941"
+                  aria-label="658 799 8941"
+                  aria-describedby="basic-default-phone"
+                />
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Send</button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl">
+      <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <small class="text-muted float-end">Patient informations</small>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+              <%= form.label :address, class: "col-sm-2 col-form-label" %>
+              <div class="col-sm-10">
+                <div class="input-group input-group-merge">
+                  <span id="basic-icon-default-fullname2" class="input-group-text">
+                    <i class="bi bi-geo-alt"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="basic-icon-default-fullname"
+                    placeholder="John Doe"
+                    aria-label="John Doe"
+                    aria-describedby="basic-icon-default-fullname2"
+                  />
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div>
-    <%= form.submit nil, class: "btn btn-primary" %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

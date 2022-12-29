@@ -12,11 +12,12 @@ Rails.application.routes.draw do
     resources :messages
   end
   devise_for :users, controllers: { sessions: 'users/sessions', passwords: 'users/passwords', registrations: 'users/registrations', confirmations: 'users/confirmations' }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  
   root "pages#dashboard"
   get "check" => "appointments#check"
+  devise_scope :user do
+    get "pending" => "users/confirmations#pending"
+  end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

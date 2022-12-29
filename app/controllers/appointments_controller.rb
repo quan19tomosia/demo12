@@ -6,6 +6,11 @@ class AppointmentsController < ApplicationController
   def index
     @search = Appointment.ransack(params[:q])
     @pagy, @appointments = pagy(@search.result(distinct: true).order(schedule: :desc), items: 10)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data Appointment.all.to_csv, filename: "appointments-#{Date.today}.csv" }
+    end
   end
 
   # GET /appointments/1 or /appointments/1.json
@@ -27,7 +32,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to appointment_url(@appointment), notice: "Appointment was successfully created." }
+        format.html { redirect_to appointment_url(@appointment), flash: { success: "Appointment was successfully created." }}
         format.json { render :show, status: :created, location: @appointment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -54,7 +59,7 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
 
     respond_to do |format|
-      format.html { redirect_to appointments_url, notice: "Appointment was successfully destroyed." }
+      format.html { redirect_to appointments_url, flash: { danger: "Appointment was successfully destroyed." }}
       format.json { head :no_content }
     end
   end

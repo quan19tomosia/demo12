@@ -6,9 +6,9 @@ class User < ApplicationRecord
          :lockable, :confirmable
   has_one :physician, dependent: :destroy
   has_one :patient, dependent: :destroy
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
 
   enum role: {admin: 0, physician: 1, patient: 2}, _prefix: :role
 
@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  after_commit :default_avatar, on: [:create]
+  before_create :default_avatar
 
   private
     def default_avatar

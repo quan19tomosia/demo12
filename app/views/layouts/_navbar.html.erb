@@ -116,7 +116,7 @@
           <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
             <span class="me-2 d-none d-lg-inline text-gray-600 small"><%= current_user.name %></span>
             <%# <div class="avatar avatar-online"> %>
-            <%= image_tag(current_user.avatar, class: "w-px-40 h-auto rounded-circle") %>
+            <%= image_tag(current_user.avatar, class: "w-px-40 h-auto rounded-circle") if current_user.avatar.attached? %>
             <%# </div> %>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
@@ -125,7 +125,7 @@
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
-                      <%= image_tag(current_user.avatar, class: "w-px-40 h-auto rounded-circle") %>
+                      <%= image_tag(current_user.avatar, class: "w-px-40 h-auto rounded-circle") if current_user.avatar.attached? %>
                     </div>
                   </div>
                   <div class="flex-grow-1">
@@ -139,16 +139,16 @@
               <div class="dropdown-divider"></div>
             </li>
             <li>
-              <a class="dropdown-item" href="#">
+              <%= link_to user_registration_path, class: "dropdown-item" do %>
                 <i class="bi bi-person-circle me-2"></i>
-                <span class="align-middle">My Profile</span>
-              </a>
+                <span class="align-middle">My profile</span>
+              <% end %>
             </li>
             <li>
-              <a class="dropdown-item" href="#" style="align-items: center">
+              <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
                 <i class="bi bi-gear me-2"></i>
                 <span class="align-middle">Settings</span>
-              </a>
+              <% end %>
             </li>
             <li>
               <div class="dropdown-divider"></div>

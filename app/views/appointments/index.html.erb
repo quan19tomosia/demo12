@@ -2,7 +2,10 @@
 
 <div class="d-flex justify-content-between align-items-center">
   <h4 class="fw-bold py-3 mb-4">Appointments</h4>
-  <%= link_to "New appointment", new_appointment_path, class: "btn btn-sm btn-outline-primary" %>
+  <div>
+    <%= link_to "Export CSV", appointments_path(format: 'csv'), class: "btn btn-sm btn-outline-primary" %>
+    <%= link_to "New appointment", new_appointment_path, class: "btn btn-sm btn-outline-primary" %>
+  </div>
 </div>
 
 <%= search_form_for @search, url: appointments_path, method: :get do |f| %>

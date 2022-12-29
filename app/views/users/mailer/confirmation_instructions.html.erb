@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<p><strong>Verify your email address</strong></p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Thanks for starting the new eHealth account creation process. We want to make sure it's really you.</p>
+
+<p>Please follow the link below to confirm your account:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>If you didn't request this email, there's nothing to worry about - You can safely ignore it</p>

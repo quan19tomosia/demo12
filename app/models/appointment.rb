@@ -1,4 +1,15 @@
 class Appointment < ApplicationRecord
+  require 'csv'
+
+  def self.to_csv
+    CSV.generate(headers: true) do |csv|
+      csv << ["Patient", "Physician", "Service", "Schedule", "Note", "State", "Rate", "Comment"]
+      all.each do |appoinment|
+        csv << [appoinment.patient.user.name, appoinment.physician.user.name, appoinment.service.name, appoinment.schedule, appoinment.note, appoinment.state.capitalize, appoinment.rate, appoinment.comment]
+      end
+    end
+  end
+
   attr_accessor :schedule_day, :schedule_time
 
   belongs_to :physician

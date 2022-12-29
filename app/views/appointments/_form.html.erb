@@ -20,24 +20,6 @@
       <%= form.date_field :schedule_day, min: Date.tomorrow, class: "form-control col-md"%>
       <%= form.select :schedule_time, options_for_select(["08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00"]), {}, { class: "form-select col-md", style: "display: none" } %>
     </div>
-    <%# <div id="appointment_schedule_time" style="display: none">
-      <button class="btn btn-time" value="08:00">08:00</button>
-      <button class="btn btn-time" value="08:30">08:30</button>
-      <button class="btn btn-time" value="09:00">09:00</button>
-      <button class="btn btn-time" value="09:30">09:30</button>
-      <button class="btn btn-time" value="10:00">10:00</button>
-      <button class="btn btn-time" value="10:30">10:30</button>
-      <button class="btn btn-time" value="11:00">11:00</button>
-      <button class="btn btn-time" value="11:30">11:30</button>
-      <button class="btn btn-time" value="13:30">13:30</button>
-      <button class="btn btn-time" value="14:00">14:00</button>
-      <button class="btn btn-time" value="14:30">14:30</button>
-      <button class="btn btn-time" value="15:00">15:00</button>
-      <button class="btn btn-time" value="15:30">15:30</button>
-      <button class="btn btn-time" value="16:00">16:00</button>
-      <button class="btn btn-time" value="16:30">16:30</button>
-      <button class="btn btn-time" value="17:00">17:00</button>
-    </div> %>
   </div>
 
   <% if appointment.errors.any? %>
