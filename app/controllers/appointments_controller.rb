@@ -63,6 +63,20 @@ class AppointmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def change_state
+    @appointment = Appointment.find(params[:appointment_id])
+    respond_to do |format|
+      if @appointment.update(state: params[:state])
+        format.html { redirect_to appointment_url(@appointment), notice: "Appointment was successfully changed state." }
+        format.json { render :show, status: :ok, location: @appointment }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @appointment.errors, status: :unprocessable_entity }
+      end
+    end
+    # @appointment.update_column(state: state)
+  end
 
   def check
     date = params[:date].to_date

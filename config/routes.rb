@@ -4,7 +4,9 @@ Rails.application.routes.draw do
       patch :ban
     end
   end
-  resources :appointments
+  resources :appointments do
+    get :change_state
+  end
   resources :patients
   resources :physicians
   resources :services

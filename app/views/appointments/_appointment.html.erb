@@ -3,11 +3,11 @@
     <td><strong><%= appointment.patient.user.name %></strong></td>
     <td><%= appointment.physician.user.name %></td>
     <td><%= appointment.service.name %></td>
-    <td><%= appointment.schedule.strftime("%d-%m-%Y") %></td>
-    <td><%= appointment.schedule.strftime("%H:%M") %></td>
+    <td class="text-center"><%= appointment.schedule.strftime("%d-%m-%Y") %></td>
+    <td class="text-center"><%= appointment.schedule.strftime("%H:%M") %></td>
     <td><%= appointment.patient.user.phone %></td>
-    <td><span class="badge rounded-pill bg-<%= badge_class(appointment.state) %>"><%= appointment.state %></span></td>
-    <td>
+    <td class="text-center"><span class="badge rounded-pill bg-<%= badge_class(appointment.state) %>"><%= appointment.state %></span></td>
+    <td class="text-center">
       <div class="dropdown">
         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
           <i class="bi bi-three-dots-vertical"></i>
@@ -23,6 +23,22 @@
             <i class="bi bi-trash me-1"></i> Delete
           <% end %>
         </div>
+      </div>
+    </td>
+    <td>
+      <div class="btn-group">
+        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Change state
+        </button>
+        <ul class="dropdown-menu">
+          <% Appointment.states.each do |state| %>
+            <% if appointment.state != state[0] %>
+              <li>
+                <%= link_to state[0].capitalize, appointment_change_state_path(appointment, state: state[0]), method: :put, class: "dropdown-item" %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
     </td>
   </tr>
